@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockub
+spec:
+  selector:
+    matchLabels:
+      app: dockub
+  template:
+    metadata:
+      labels:
+        app: dockub
+    spec:
+      containers:
+      - name: dockub
+        image: erthill/dockub
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
